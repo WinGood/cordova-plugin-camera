@@ -230,7 +230,7 @@ static NSString* toBase64(NSData* data) {
     // Dismiss the view
     [[self.pickerController presentingViewController] dismissViewControllerAnimated:YES completion:nil];
 
-    CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"has no access to camera"];   // error callback expects string ATM
+    CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Has no access to camera"];   // error callback expects string ATM
 
     [self.commandDelegate sendPluginResult:result callbackId:self.pickerController.callbackId];
 
@@ -341,9 +341,6 @@ static NSString* toBase64(NSData* data) {
     pc.delegate = nil;
     if (self.pickerController && self.pickerController.callbackId && self.pickerController.pickerPopoverController) {
         self.pickerController.pickerPopoverController = nil;
-        NSString* callbackId = self.pickerController.callbackId;
-        CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"no image selected"];   // error callback expects string ATM
-        [self.commandDelegate sendPluginResult:result callbackId:callbackId];
     }
     self.hasPendingOperation = NO;
 }
@@ -565,11 +562,9 @@ static NSString* toBase64(NSData* data) {
     dispatch_block_t invoke = ^ (void) {
         CDVPluginResult* result;
         if (picker.sourceType == UIImagePickerControllerSourceTypeCamera && [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo] != ALAuthorizationStatusAuthorized) {
-            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"has no access to camera"];
+            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Has no access to camera"];
         } else if (picker.sourceType != UIImagePickerControllerSourceTypeCamera && [ALAssetsLibrary authorizationStatus] != ALAuthorizationStatusAuthorized) {
-            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"has no access to assets"];
-        } else {
-            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"no image selected"];
+            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Has no access to assets"];
         }
 
         
