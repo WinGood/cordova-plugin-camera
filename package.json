@@ -1,10 +1,10 @@
 {
-  "name": "cordova-plugin-camera",
-  "version": "2.4.2-dev",
+  "name": "cordova-plugin-camera-fork",
+  "version": "0.0.1",
   "description": "Cordova Camera Plugin",
   "types": "./types/index.d.ts",
   "cordova": {
-    "id": "cordova-plugin-camera",
+    "id": "cordova-plugin-camera-fork",
     "platforms": [
       "firefoxos",
       "android",
@@ -19,25 +19,7 @@
       "windows"
     ]
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/apache/cordova-plugin-camera"
-  },
   "keywords": [
-    "cordova",
-    "camera",
-    "ecosystem:cordova",
-    "cordova-firefoxos",
-    "cordova-android",
-    "cordova-amazon-fireos",
-    "cordova-ubuntu",
-    "cordova-ios",
-    "cordova-blackberry10",
-    "cordova-wp7",
-    "cordova-wp8",
-    "cordova-windows8",
-    "cordova-browser",
-    "cordova-windows"
   ],
   "scripts": {
     "precommit": "npm run gen-docs && git add README.md",
