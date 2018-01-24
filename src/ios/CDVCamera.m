@@ -566,6 +566,8 @@ static NSString* toBase64(NSData* data) {
         } else if (picker.sourceType != UIImagePickerControllerSourceTypeCamera && [ALAssetsLibrary authorizationStatus] != ALAuthorizationStatusAuthorized) {
             result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR
              messageAsString:@"Has no access to assets"];
+        } else if (picker.sourceType != UIImagePickerControllerSourceTypeCamera) {
+            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"No Image Selected"];
         }
 
 

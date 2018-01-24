@@ -790,7 +790,7 @@ public class CameraLauncher extends CordovaPlugin implements MediaScannerConnect
 
             }// If cancelled
             else if (resultCode == Activity.RESULT_CANCELED) {
-                //this.failPicture("No Image Selected");
+                this.failPicture("No Image Selected");
             }
 
             // If something else
@@ -819,12 +819,12 @@ public class CameraLauncher extends CordovaPlugin implements MediaScannerConnect
 
             // If cancelled
             else if (resultCode == Activity.RESULT_CANCELED) {
-                //this.failPicture("No Image Selected");
+                this.failPicture("No Image Selected");
             }
 
             // If something else
             else {
-                this.failPicture("Did not complete!");
+                this.failPicture("No Image Selected");
             }
         }
         // If retrieving photo from library
