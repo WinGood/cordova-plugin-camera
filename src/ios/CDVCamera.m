@@ -200,11 +200,15 @@ static NSString* toBase64(NSData* data) {
             }
 
             if ([weakSelf popoverSupported] && (pictureOptions.sourceType != UIImagePickerControllerSourceTypeCamera)) {
-                if (cameraPicker.pickerPopoverController == nil) {
-                    cameraPicker.pickerPopoverController = [[NSClassFromString(@"UIPopoverController") alloc] initWithContentViewController:cameraPicker];
-                }
-                [weakSelf displayPopover:pictureOptions.popoverOptions];
-                weakSelf.hasPendingOperation = NO;
+                // Disable popover for iPad
+                // if (cameraPicker.pickerPopoverController == nil) {
+                //     cameraPicker.pickerPopoverController = [[NSClassFromString(@"UIPopoverController") alloc] initWithContentViewController:cameraPicker];
+                // }
+                // [weakSelf displayPopover:pictureOptions.popoverOptions];
+                // weakSelf.hasPendingOperation = NO;
+                [weakSelf.viewController presentViewController:cameraPicker animated:YES completion:^{
+                    weakSelf.hasPendingOperation = NO;
+                }];
             } else {
                 [weakSelf.viewController presentViewController:cameraPicker animated:YES completion:^{
                     weakSelf.hasPendingOperation = NO;
