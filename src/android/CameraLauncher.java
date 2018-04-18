@@ -838,7 +838,7 @@ public class CameraLauncher extends CordovaPlugin implements MediaScannerConnect
                     }
                 });
             } else if (resultCode == Activity.RESULT_CANCELED) {
-//                this.failPicture("Selection cancelled.");
+               this.failPicture("No Image Selected");
             } else {
                 this.failPicture("Selection did not complete!");
             }
